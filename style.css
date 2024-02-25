@@ -1,0 +1,306 @@
+/* 
+  1. Use a more-intuitive box-sizing model.
+*/
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+/*
+  2. Remove default margin
+*/
+* {
+  margin: 0;
+  padding: 0;
+}
+/*
+  Typographic tweaks!
+  3. Add accessible line-height
+  4. Improve text rendering
+*/
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  background: var(--bg-primary);
+  font-family: var(--font-fam);
+  font-weight: var(--font-weight-medium);
+}
+/*
+  5. Improve media defaults
+*/
+img, picture, video, canvas, svg {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+  font-style: italic;
+  background-repeat: no-repeat;
+  background-size: cover;
+  shape-margin: 0.75rem;
+}
+/*
+  6. Remove built-in form typography styles
+*/
+input, button, textarea, select {
+  font: inherit;
+}
+/*
+  7. Avoid text overflows
+*/
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+/*
+  8. Create a root stacking context
+*/
+#root, #__next {
+  isolation: isolate;
+}
+
+:root{
+
+  /*-- COLORS --*/
+  --bg-primary: hsl(234, 29%, 20%);                  /* Dark Slate Grey */
+  --bg-secondary: hsl(4, 100%, 67%);                 /* Tomato */
+  --gen-white: hsl(0, 0%, 100%);                     /* White */
+  
+  --accent-primary: hsl(234, 29%, 20%);              /* Dark Slate Grey */
+  --accent-seconday-100: hsl(4, 100%, 67%);          /* Tomato */
+  --accent-seconday-30: hsla(4, 100%, 67%, 0.3);     /* Tomato 30% opacity */
+  --accent-tertiary: hsl(22, 100%, 66%);             /* Light Tomato */
+  --font-primary: hsl(0, 0, 0);                      /* Black */
+  --font-secondary: hsl(231, 7%, 60%);               /* Grey */  
+
+  --linear-gradient-tomato: linear-gradient(90deg, var(--accent-seconday-100), var(--accent-tertiary));
+
+  /*-- FONTS --*/
+  --font-fam: 'Roboto', sans-serif;
+  --font-weight-medium: 400;
+  --font-weight-medium-heavy: 500;
+  --font-weight-heavy: 700;
+
+  /*-- SIZING --*/
+
+  --font-size-xs: .9rem;                             
+  --font-size-sm: 1rem;                              
+  --font-size-reg: 1.25rem;                          
+  --font-size-h2: 2.8rem;                              
+  --font-size-h2-alt: 3.5rem;                        
+  
+  --pad-mobile-container-left-right: 1.875rem;       
+  --pad-mobile-container-top-bottom: 2rem;              
+  --pad-desktop-container: 2rem;                    
+
+  /*-- SPACING --*/
+  --margin-spacing-0-25: .5rem;
+  --margin-spacing-0-5: .75rem;
+  --margin-spacing-1: 1rem;
+  --margin-spacing-1-5: 1.5rem;
+  --margin-spacing-2: 2rem;
+
+  /*-- STYLING --*/
+  --border-radius-main: 2.25rem;
+
+}
+
+.fade{
+  opacity: .25;
+}
+
+.place-center{
+  display: grid;
+  align-items: center;
+  place-items: center;
+  height: 100svh;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 3.5rem;
+  max-width: 95vw;
+  height: 641px;
+  background-color: var(--gen-white);
+  border-radius: var(--border-radius-main);
+  padding: var(--pad-desktop-container);
+}
+
+.content-container{
+  max-width: 400px;
+  padding-left: 2rem;
+}
+
+.container-graphic{
+  position: relative;
+}
+
+.desktop-image{
+  width: fit-content;
+}
+
+.mobile-image{
+  display: none;
+}
+
+ul{
+  list-style-type: none;
+  margin-bottom: var(--margin-spacing-1);
+}
+
+li{
+  display: flex;
+  align-items: start;
+}
+h2 {
+  font-size: var(--font-size-h2-alt);
+  font-weight: var(--font-weight-heavy);
+  margin-bottom: var(--margin-spacing-0-25);
+}
+p {
+  margin-bottom: var(--margin-spacing-2);
+}
+ul{
+  margin-bottom: var(--margin-spacing-2);
+}
+li{
+  margin: .75rem 0;
+
+}
+li > img {
+  display: block;
+  width: fit-content;
+  margin-right: 1rem;
+}
+
+.email-label{
+  display: flex;
+  justify-content: space-between;
+  font-weight: var(--font-weight-heavy);
+  font-size: var(--font-size-xs);
+  margin-bottom: .25rem;
+}
+
+.email-error{
+  color: var(--accent-seconday-100);
+}
+
+.email-input-error-style{
+  border: 2px solid var(--accent-seconday-100);
+  background-color: hsla(4, 100%, 67%, 25%);
+  color: var(--accent-seconday-100);
+}
+
+#submit-btn, input, button{
+  width: 100%;
+  max-width: 375px;
+  padding: .85rem 1.125rem;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+#submit-btn:hover,
+button:hover{
+  background: var( --linear-gradient-tomato);
+  box-shadow: 0px 7px 20px var(--accent-seconday-100);
+}
+
+input {
+  margin-bottom: var(--margin-spacing-1-5);
+  border: 1px var(--font-secondary) solid;
+}
+
+#submit-btn, button {
+background-color: var(--bg-primary);
+color: var(--gen-white);
+font-weight: var(--font-weight-medium-heavy);
+border: none;
+}
+
+.hidden{
+  display: none; 
+}
+
+/* CONFIRMATION BOX DESKTOP */
+
+.confirmation-container{
+  max-width: 550px;
+  text-align: left;
+  background-color: var(--gen-white);
+  padding: 54px;
+  border-radius: 32px;
+}
+
+.confirmation-container h2{
+  line-height: 1.2;
+  margin: 1.5rem auto;
+}
+
+#dismiss-btn{
+  min-width: 100%;
+}
+
+.accent-bold{
+  font-weight: bold;
+}
+
+
+@media (max-width: 500px){
+
+  .place-center{
+    display: flex;
+    width: 100vw;
+    background-color: var(--gen-white);
+  }
+
+  .app-container{
+    flex-direction: column-reverse;
+    justify-content: start;
+    gap: 2rem;
+    margin: 0;
+    padding: 0 0 2rem 0;
+    min-width: 100vw;
+    border-radius: 0;
+    height: 100vh;
+  }
+
+  h2{
+    font-size: var(--font-size-h2);
+  }
+
+  p, li{
+    font-size: var(--font-size-xs);
+  }
+
+  .content-container{
+    padding-inline: 1.75rem;
+    align-self: flex-start;
+  }
+
+  .container-graphic{
+    min-width: 100%; 
+  }
+
+  .desktop-image{
+    display: none;
+  }
+      
+  .mobile-image{
+    display: inline-block;
+    min-width: 100%;
+  }
+  .confirmation-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100dvh;
+    padding: 32px;
+  }
+  .confirmation-dialog{
+    font-size: 1rem;
+
+  }
+  .top-margin{
+   margin-top: 5rem;
+  }
+}
+
+
