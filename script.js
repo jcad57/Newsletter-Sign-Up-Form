@@ -13,6 +13,7 @@ submitButton.addEventListener("click", function () {
     emailErrorNotice.classList.remove("hidden");
     emailInput.classList.add("email-input-error-style");
   } else {
+    emailInput.value = "";
     appContainer.classList.add("hidden");
     confirmationModal.classList.remove("hidden");
     confirmationMessage.innerHTML = `A confirmation email has been sent to
